@@ -4,7 +4,7 @@ import Header from './Header'
 
 const Layout = () => {
   return (
-    <main className="font-[Quicksand] bg-teal-100 min-h-screen">
+    <main className="font-[Quicksand] bg-gray-100 min-h-screen">
       <Header />
       <Outlet />
     </main>

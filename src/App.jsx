@@ -1,11 +1,14 @@
+import {useEffect, useState, createContext } from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Layout from "./components/Layout";
-import Repo from "./components/pages/Repo";
+import Repos from "./components/pages/Repos";
 import RepoData from "./components/pages/RepoData";
 import Error404 from "./components/pages/Error404";
 import ErrorBoundary from "./components/ErrorBoundary";
 import ErrorBoundaryTest from "./components/pages/ErrorBoundaryTest";
+
+export const RepoContext = createContext();
 
 function App() {
   //Implement an API fetch of your GitHub portfolio,
@@ -16,20 +19,37 @@ function App() {
   //necessary tools in react. Implement the proper SEO, Error Boundary
   //(show a page to test the error boundary) and 404 pages.
   // Good UI and Designs are important.
+  const [repos, setRepos] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+ 
+
+  //   Fetching Lekanjoy Github Repositories
+  useEffect(() => {
+    setIsLoading(true);
+    fetch("https://api.github.com/users/Lekanjoy/repos?per_page=100")
+      .then((res) => res.json())
+      .then((data) => {
+        setRepos(data);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, []);
 
   return (
     <ErrorBoundary>
-      <Routes>
-        <Route path="/">
-          <Route element={<Layout />}>
-            <Route index element={<Home />} />
-            <Route path="repo" element={<Repo />} />
-            <Route path="repo/:details" element={<RepoData />} />
-            <Route path="/errorboundary" element={<ErrorBoundaryTest />} />
-            <Route path="*" element={<Error404 />} />
+      <RepoContext.Provider value={{ repos, isLoading }}>
+        <Routes>
+          <Route path="/">
+            <Route element={<Layout />}>
+              <Route index element={<Home />} />
+              <Route path="repos" element={<Repos />} />
+              <Route path="repos/:details" element={<RepoData />} />
+              <Route path="/errorboundary" element={<ErrorBoundaryTest />} />
+              <Route path="*" element={<Error404 />} />
+            </Route>
           </Route>
-        </Route>
-      </Routes>
+        </Routes>
+      </RepoContext.Provider>
     </ErrorBoundary>
   );
 }

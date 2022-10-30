@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react";
 
 const Pagination = ({
-  userPerPage: reposPerPage,
-  totalUsers: totalRepos,
+  reposPerPage,
+  totalRepos,
   currentPage,
   setCurrentPage,
   paginate,
@@ -22,25 +22,34 @@ const Pagination = ({
   function prevPage() {
     setCurrentPage(currentPage - 1);
   }
-
+  // console.log(pageNumber);
   return (
-    <div className="pagination">
-      <button disabled={currentPage === 1} onClick={prevPage}>
+    <div className="pagination mt-4 w-full">
+      <p className="">Page {currentPage} of {pageNumber.length}</p> <br />
+      <button
+        className="bg-red-400 btn"
+        disabled={currentPage === 1}
+        onClick={prevPage}
+      >
         Prev
       </button>
 
       {pageNumber.map((num) => {
         return (
-          <button key={num} onClick={() => paginate(num)}>
+          <button className="btn" key={num} onClick={() => paginate(num)}>
             {num}
           </button>
         );
       })}
-      <button disabled={currentPage === pageNumber.length} onClick={nextPage}>
+      <button
+        className="bg-green-600 btn"
+        disabled={currentPage === pageNumber.length}
+        onClick={nextPage}
+      >
         Next
       </button>
     </div>
   );
 };
 
-export default Pagination
+export default Pagination;

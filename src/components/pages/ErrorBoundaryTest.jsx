@@ -4,7 +4,7 @@ const ErrorBoundaryTest = () => {
     const [error, setError] = useState('Error');
   
   return (
-    <div>{setError(1)}</div>
+    <div>{setError('Will throw error')}</div>
   )
 }
 

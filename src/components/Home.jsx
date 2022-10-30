@@ -1,14 +1,34 @@
-import React from 'react'
+import React, { useState, useEffect, useContext} from "react";
+import Profile from "./Profile";
 
 const Home = () => {
-  return (
-    <div className="p-4 h-[90vh]  text-center grid place-items-center">
-      <div className="">
-          <p className="animate-bounce duration-700 text-2xl font-semibold uppercase mb-2">Welcome to my Page. </p>
-          <p className='text-gray-500'> Use the Menu or navigation links to view the different pages</p>
-      </div>
-    </div>
-  );
-}
 
-export default Home
+  const [portfolio, setPortfolio] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
+
+  // Fetching My GitHub Portfolio
+  useEffect(() => {
+    setIsLoading(true);
+    fetch('https://api.github.com/users/lekanjoy')
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        setPortfolio(data);
+        setIsLoading(false);
+      })
+      .catch((err) => console.error(err));
+  }, []);
+
+  return (
+    <section className="p-4 ">
+      <h1 className="my-4 text-center font-semibold text-lg italic">
+        Olalekan Alabi's Github Portfolio
+      </h1>
+      {isLoading === true ? (
+        "Loading"
+      ) : <Profile portfolio={portfolio}/>}
+    </section>
+  );
+};
+
+export default Home;

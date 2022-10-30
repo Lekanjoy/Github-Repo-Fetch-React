@@ -22,7 +22,7 @@ const Header = () => {
           <Link to="/">
             <li className="hover:text-purple-600">Home</li>
           </Link>
-          <Link to="/repo">
+          <Link to="/repos">
             <li className="hover:text-purple-600">Repositories</li>
           </Link>
           <Link to="/errorboundary">
@@ -38,7 +38,7 @@ const Header = () => {
             <Link onClick={handleSideBar} to="/">
               <li>Home</li>
             </Link>
-            <Link onClick={handleSideBar} to="/repo">
+            <Link onClick={handleSideBar} to="/repos">
               <li>Repositories</li>
             </Link>
             <Link onClick={handleSideBar} to="/errorboundary">
