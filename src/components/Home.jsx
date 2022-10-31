@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useContext} from "react";
 import Profile from "./Profile";
+import ProfileSkeletonLoading from "./ProfileSkeletonLoading";
 
 const Home = () => {
 
@@ -20,13 +21,8 @@ const Home = () => {
   }, []);
 
   return (
-    <section className="p-4 ">
-      <h1 className="my-4 text-center font-semibold text-lg italic">
-        Olalekan Alabi's Github Portfolio
-      </h1>
-      {isLoading === true ? (
-        "Loading"
-      ) : <Profile portfolio={portfolio}/>}
+    <section className="px-8 bg-teal-50 min-h-[90vh] flex justify-center items-center">
+      {isLoading === true ? <ProfileSkeletonLoading/> : <Profile portfolio={portfolio}/>}
     </section>
   );
 };

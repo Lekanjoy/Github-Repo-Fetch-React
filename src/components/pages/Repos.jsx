@@ -21,8 +21,8 @@ const Repos = () => {
   return (
 
       <section className="p-4 md:px-12">
-        <h2 className="text-center font-semibold text-lg my-4 italic">
-          Olalekan Alabi's Github Repositories
+        <h2 className="text-center font-bold text-2xl my-4 italic">
+          My Github Repositories
         </h2>
         <div className="mt-8 mb-3">
           {isLoading ? "Loading..." : <Repo repos={currentRepo} />}

@@ -10,7 +10,7 @@ const Header = () => {
     setShowMenu((prevState) => !prevState);
   }
   return (
-    <header className="w-full h-full flex justify-between bg-[#333] p-4 items-center relative">
+    <header className="w-full   flex justify-between bg-[#333] p-4 items-center relative">
       <h1 className="font-bold text-lg text-white">
         GitHub<span className="text-blue-600">Repo</span>Fetch
       </h1>
@@ -33,7 +33,7 @@ const Header = () => {
 
       {/* Mobile Side Menu */}
       {showMenu && (
-        <nav className="bg-gray-600 shadow-xl z-20 text-white pl-4 pr-20 rounded-br-md h-[70vh] pt-12 pb-28 absolute top-[60px] left-0 md:bg-transparent md:relative md:p-0 md:rounded-none md:top-0 md:h-auto">
+        <nav className="bg-gray-500  z-20 text-white pl-4 pr-20 rounded-br-md h-[70vh] pt-12 pb-28 absolute top-[60px] left-0 md:bg-transparent md:relative md:p-0 md:rounded-none md:top-0 md:h-auto">
           <ul className="cursor-pointer flex flex-col gap-y-8 md:flex-row  md:gap-x-4">
             <Link onClick={handleSideBar} to="/">
               <li>Home</li>
