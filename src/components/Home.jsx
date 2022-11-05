@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useContext} from "react";
+import React, { useState, useEffect} from "react";
+import { Helmet } from "react-helmet-async";
 import Profile from "./Profile";
 import ProfileSkeletonLoading from "./ProfileSkeletonLoading";
 
@@ -22,7 +23,18 @@ const Home = () => {
 
   return (
     <section className="px-8 bg-teal-50 min-h-[90vh] flex justify-center items-center">
-      {isLoading === true ? <ProfileSkeletonLoading/> : <Profile portfolio={portfolio}/>}
+      <Helmet>
+        <title>GitHub Portfolio Fetch</title>
+        <meta
+          name="description"
+          content="Olalekan Alabi GitHub Profile Fetch."
+        />
+      </Helmet>
+      {isLoading === true ? (
+        <ProfileSkeletonLoading />
+      ) : (
+        <Profile portfolio={portfolio} />
+      )}
     </section>
   );
 };
