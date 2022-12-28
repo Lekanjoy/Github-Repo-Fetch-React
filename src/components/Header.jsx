@@ -9,8 +9,9 @@ const Header = () => {
   function handleSideBar() {
     setShowMenu((prevState) => !prevState);
   }
+
   return (
-    <header className="w-full   flex justify-between bg-[#333] p-4 items-center relative">
+    <header className="w-full flex justify-between bg-[#333] p-4 items-center relative">
       <h1 className="font-bold text-lg text-white">
         GitHub<span className="text-blue-600">Repo</span>Fetch
       </h1>

@@ -24,10 +24,10 @@ const Pagination = ({
   function prevPage() {
     setCurrentPage(currentPage - 1);
   }
-  // console.log(pageNumber);
+  
   return (
     <div className="pagination mt-4 w-full ">
-      <p className="">Page {currentPage} of {pageNumber.length}</p> <br />
+      <p>Page {currentPage} of {pageNumber.length}</p> <br />
       <div className="lg:flex lg:items-center lg:justify-center">
         <button
           className="btn flex items-center"

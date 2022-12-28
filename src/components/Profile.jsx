@@ -5,7 +5,7 @@ import location from "../assets/location_icon.svg";
 import coding from '../assets/coding.jpg'
 
 const Profile = ({ portfolio }) => {
-  // console.log(portfolio);
+  
   return (
     <section
       className="relative w-full bg-white shadow-xl flex flex-col justify-center border-t 
@@ -25,6 +25,7 @@ const Profile = ({ portfolio }) => {
         <img src={location} alt="location icon" />
         <p className="italic font-light my-3">{portfolio.location}</p>
       </div>
+      
       {/* Get twitter, website and gitbub icon */}
       <div className="flex justify-center gap-x-2 items-center my-4">
         <a
