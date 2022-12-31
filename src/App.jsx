@@ -25,7 +25,10 @@ function App() {
         setRepos(data);
         setIsLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err)
+        alert('Please check your Internet connection ⚠')
+      });
   }, []);
 
   return (

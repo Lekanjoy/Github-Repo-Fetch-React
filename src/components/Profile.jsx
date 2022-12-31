@@ -1,8 +1,7 @@
-import github from "../assets/github_icon.svg";
-import twitter from "../assets/twitter.svg";
-import website from "../assets/website icon_icon.svg";
 import location from "../assets/location_icon.svg";
 import coding from '../assets/coding.jpg'
+import { FaGithub, FaTwitter, FaGlobe } from "react-icons/fa";
+
 
 const Profile = ({ portfolio }) => {
   
@@ -33,21 +32,21 @@ const Profile = ({ portfolio }) => {
           target="_blank"
           className=" h-[30px] w-[30px] rounded-full"
         >
-          <img src={twitter} alt="" />
+          <FaTwitter className="text-blue-400 w-[20px] h-[30px]" />
         </a>
         <a
           href={portfolio.blog}
           target="_blank"
-          className="bg-gray-200 p-1 h-[30px] w-[30px] rounded-full"
+          className=" h-[30px] w-[30px] rounded-full"
         >
-          <img src={website} alt="" />
+          <FaGlobe className="w-[20px] h-[30px]"/>
         </a>
         <a
           href={portfolio.html_url}
           target="_blank"
           className=" h-[30px] w-[30px] rounded-full"
         >
-          <img src={github} alt="" />
+          <FaGithub className="w-[20px] h-[30px]" />
         </a>
       </div>
 
