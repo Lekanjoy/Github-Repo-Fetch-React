@@ -14,7 +14,6 @@ const Home = () => {
     fetch('https://api.github.com/users/lekanjoy')
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         setPortfolio(data);
         setIsLoading(false);
       })

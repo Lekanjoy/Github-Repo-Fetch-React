@@ -29,6 +29,7 @@ function App() {
         console.error(err)
         alert('Please check your Internet connection ⚠')
       });
+      
   }, []);
 
   return (
